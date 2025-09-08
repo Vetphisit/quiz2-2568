@@ -7,6 +7,7 @@ import {
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconSun, IconMoon } from "@tabler/icons-react";
+import { IconReceiptDollar } from "@tabler/icons-react";
 
 interface HeaderComponentProps {
   opened: boolean;
@@ -17,12 +18,11 @@ export default function HeaderComponent({
   opened,
   toggle,
 }: HeaderComponentProps) {
-
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  
+
   const isDark = colorScheme === "dark";
   const isMobile = useMediaQuery("(max-width: 768px)");
-  
+
   return (
     <Group p="md" justify="space-between">
       <Group>
@@ -41,6 +41,13 @@ export default function HeaderComponent({
         >
           TRACKER-APP
         </Text>
+        <ActionIcon 
+          variant="filled" 
+          aria-label="Settings"
+          onClick={toggleColorScheme}
+          size="lg">
+          <IconReceiptDollar size={20} />
+        </ActionIcon>
       </Group>
       <Group gap={5}>
         <ActionIcon
